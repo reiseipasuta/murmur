@@ -1,0 +1,560 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    background-color: rgb(113, 143, 188);
+}
+
+li {
+    list-style: none;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+}
+
+/* button {
+    display: block;
+    margin: 10px;
+} */
+
+a {
+    text-decoration: none;
+    color: rgb(46, 66, 103);
+}
+
+form {
+    margin: 0;
+}
+
+.smallBold {
+    font-size: small;
+    font-weight: bold;
+    margin: 0;
+}
+
+.bottomMar10 {
+    margin-bottom: 10px;
+}
+
+.rightMar5 {
+    margin-right: 5px;
+}
+
+.length {
+    font-size: small;
+    font-weight: bold;
+}
+
+.registerInput {
+    margin-bottom: 15px;
+    height: 30px;
+    width: 80%;
+}
+
+.registerText {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.block {
+    display: block;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.header {
+    width: 75%;
+    max-width: 750px;
+    height: 100px;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    color:rgb(22, 62, 102);
+    margin-right: 30px;
+}
+
+.container {
+    width: 80%;
+    margin: 0px auto;
+    max-width: 800px;
+    /* display: flex;
+    background-color: rgb(116, 102, 89);
+    border-radius: 30px;
+    overflow: hidden; */
+}
+
+.menu {
+    /* width: clamp(100px, 20%, 200px); */
+    padding: 30px;
+    position: fixed;
+}
+
+ul {
+    text-align: center;
+    padding: 0;
+}
+
+ul > li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btnFixed {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(67, 38, 18);
+    border: solid 3px rgb(131, 112, 88);
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:1;
+    cursor: pointer;
+}
+
+.btnContent {
+    font-size: 28px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    line-height: 0.8;
+}
+
+.close {
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.headerMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerMenuGuest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerMenu > div {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+
+.logout {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.contents {
+    background-color:rgb(187, 178, 166);
+    /* flex: 1; */
+    margin: 5px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.post {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.tweetImage {
+    max-width: 500px;
+    width: 90%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.editGood {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.body {
+    padding: 10px 10px 10px 10px;
+}
+
+.day {
+    margin: 10px 0;
+    font-size: smaller;
+}
+
+.title {
+    margin: 0px 20px 20px 10px;
+    font-size: 18px;
+}
+
+.commentContent {
+    border-radius: 25px;
+    width: 90%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commentPost {
+    margin: 20px 0px;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    background-color: rgb(226, 217, 202);
+}
+
+.profileIcon {
+    display: flex;
+    align-items: center;
+}
+
+.rightLink {
+    margin-left: auto;
+}
+
+.name {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.iconCircle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.iconCircleGuest {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.iconCircleSmall {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+.iconImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    object-fit: cover;
+}
+
+.profileSentence {
+    margin: 20px 10px;
+}
+
+.profileFollows {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.profileEditTitle {
+    font-weight: bold;
+    margin: 10px 0 30px 10px;
+}
+
+.profileEditContent {
+    margin: 0px 20px 20px 30px;
+}
+
+.profileEditContent > p{
+    margin-bottom: 5px;
+}
+
+.followingBtn {
+    margin-right: 30px;
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 20px;
+    font-weight: bold;
+    border: dotted white;
+}
+
+.followBtn {
+    margin-right: 30px;
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-weight: bold;
+    border: dotted black;
+}
+
+.square {
+    margin-right: 5px;
+    width: 7px;
+    height: 15px;
+    background-color: rgb(91, 122, 153);
+}
+
+
+#modal-content{
+	z-index:2;
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;
+	width:70%;
+    transform: translateX(-50%) translateY(-70%);
+	height:auto;
+	margin:auto;
+	padding:10px 20px;
+	border:2px solid #aaa;
+	background:#fff;
+    border-radius: 20px;
+}
+
+#modal-overlay{
+	z-index:1;
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(51,51,51,0.6);
+	margin-top:0px;
+}
+
+#edit-modal-content{
+	z-index:2;
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;
+	width:70%;
+    transform: translateX(-50%) translateY(-70%);
+	height:auto;
+	margin:auto;
+	padding:10px 20px;
+	border:2px solid #aaa;
+	background:#fff;
+    border-radius: 20px;
+}
+
+#edit-modal-overlay{
+	z-index:1;
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(51,51,51,0.6);
+	margin-top:0px;
+}
+
+.btnNone {
+    /* margin-right: 5px; */
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 850px){
+
+    .header {
+        width: 90%;
+
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 0px auto;
+    }
+
+    .contents {
+        margin: 5px;
+        border-radius: 20px;
+    }
+
+    .post {
+        width: 90%;
+        margin: 25px auto;
+        padding: 15px 15px 15px 15px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 580px){
+
+    .mobileNone {
+        display: none;
+    }
+
+    .header {
+        width: 90%;
+
+    }
+
+    .iconCircleGuest {
+        display: none;
+    }
+
+    .headerMenu {
+        display: none;
+    }
+
+    .contents {
+        margin: 0px;
+        padding: 1px 10px;
+        border-radius: 20px;
+    }
+
+    .newPostIpad {
+        padding: 10px;
+    }
+
+    .mobileForm{
+        padding: 15px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 400px){
+
+    textarea {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .mobileNone {
+        display: none;
+    }
+
+    .header {
+        width: auto;
+        margin-left: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    .container {
+        width: 95%;
+        margin: 0px auto;
+    }
+
+    .contents {
+        margin: 0px;
+        padding: 10px 10px;
+        border-radius: 20px;
+    }
+
+    .post {
+        margin: 0px auto 20px 0;
+        padding: 15px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .mobileForm{
+        padding: 15px;
+    }
+
+    .iconCircle {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+    }
+
+    .iconCircleGuest {
+        display: none;
+    }
+
+    .headerMenu {
+        display: none;
+    }
+
+    .commentContent {
+        box-sizing: border-box;
+    }
+
+    .btnFixed {
+        bottom: 3%;
+        right: 4%;
+        width: 90px;
+        height: 90px;
+    }
+
+    .btnContent {
+        font-size: 23px;
+    }
+
+    .editGood {
+        margin-right: 10px;
+    }
+
+}
