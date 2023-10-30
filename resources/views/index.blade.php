@@ -88,7 +88,7 @@
 
             <!-- モーダルウィンドウ -->
 
-        <div id="edit-modal-content">
+        {{-- <div id="edit-modal-content">
             <div class="contents newPostIpad">
                 <div class="title">
                     <i class="fa-solid fa-pen-nib rightMar5" style="color: #424f67;"></i>編集
@@ -123,7 +123,7 @@
         <!-- 2番目に表示されるモーダル -->
         <div id="edit-modal-overlay" onclick="edit_modal_onclick_close()"></div>
 
-        <!-- モーダルウィンドウここまで -->
+        <!-- モーダルウィンドウここまで --> --}}
 
 
 
