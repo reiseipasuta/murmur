@@ -19,7 +19,7 @@
                             @if ($tweet->user->image === null)
                             <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                             @else
-                            <img class="iconImage" src="{{ Storage::url($tweet->user->image) }}" alt="">
+                            <img class="iconImage" src="{{ asset('storage/images/'.$tweet->user->image) }}" alt="">
                             @endif
                         </figure>
                         <span class="block name">{{ $tweet->user->name }}</span>

@@ -17,7 +17,7 @@
                             @if ($follow->image === null)
                             <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                             @else
-                            <img class="iconImage" src="{{ Storage::url($follow->image) }}" alt="">
+                            <img class="iconImage" src="{{ asset('storage/images/'.$follow->image) }}" alt="">
                             @endif
                         </a>
                     </figure>

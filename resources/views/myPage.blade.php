@@ -9,7 +9,7 @@
                 @if ($user->image === null)
                 <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                 @else
-                <img class="iconImage" src="{{ Storage::url($user->image) }}" alt="">
+                <img class="iconImage" src="{{ asset('storage/images/'.$user->image) }}" alt="">
                 @endif
             </figure>
             <p class="name">{{ $user->name }}</p>
