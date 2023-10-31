@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
 
         if($request->image != null) {
             $imagePath = $request->image->store('public/images');
+            $imageName = basename($imagePath);
         }
         else{
             $imagePath = null;
@@ -50,7 +51,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'profile' => $request->profile,
-            'image' => $imagePath,
+            'image' => $imageName,
         ]);
 
         event(new Registered($user));
