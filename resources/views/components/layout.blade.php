@@ -28,7 +28,7 @@
                         @if (Auth::user()->image === null)
                         <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                         @else
-                        <img class="iconImage" src="{{ Storage::url(Auth::user()->image) }}" alt="">
+                        <img class="iconImage" src="{{ asset('storage/images/'.Auth::user()->image) }}" alt="">
                         @endif
                     </a>
                 </div>
