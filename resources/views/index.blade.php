@@ -2,8 +2,7 @@
     <x-slot name="title">
         Tweeeeeter
     </x-slot>
-
-{{ env('APP_URL') }}
+    
         <div class="contents">
             @foreach ($tweets as $tweet)
             <a href="{{ route('createComment', $tweet) }}">
@@ -18,7 +17,7 @@
                             @if ($tweet->user->image === null)
                             <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                             @else
-                            <img class="iconImage" src="{{ asset('storage/'.$tweet->user->image) }}" alt="">
+                            <img class="iconImage" src="{{ asset('storage/images/'.$tweet->user->image) }}" alt="">
                             @endif
                     </figure>
                             <span class="block name">{{ $tweet->user->name }}</span>
@@ -34,9 +33,9 @@
                     @if ($tweet->image === null)
 
                     @elseif($tweet->getImageOrVideo($tweet->image))
-                    <img class="tweetImage" src="{{ Storage::url($tweet->image) }}" alt="">
+                    <img class="tweetImage" src="{{ asset('storage/tweetImages/'.$tweet->image) }}" alt="">
                     @else
-                    <video class="tweetImage" controls controlsList="nodownload" src="{{ Storage::url($tweet->image) }}" muted class="contents_width"></video>
+                    <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage/tweetImages/'.$tweet->image) }}" muted class="contents_width"></video>
                     @endif
                 </div>
                 <div class="textRight day">

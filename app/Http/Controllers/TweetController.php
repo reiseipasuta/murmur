@@ -58,10 +58,11 @@ class TweetController extends Controller
         if($request->image != null)
         {
             $imagePath = $request->image->store('public/tweetImages');
+            $imageName = basename($imagePath);
             $tweet->create([
                 'body' => $request->body,
                 'user_id' => Auth::id(),
-                'image' => $imagePath,
+                'image' => $imageName,
             ]);
         }else{
             $tweet->create([
