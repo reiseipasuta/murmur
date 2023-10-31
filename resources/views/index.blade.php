@@ -34,9 +34,9 @@
                     @if ($tweet->image === null)
 
                     @elseif($tweet->getImageOrVideo($tweet->image))
-                    <img class="tweetImage" src="{{ Storage::url($tweet->image) }}" alt="">
+                    <img class="tweetImage" src="{{ asset('storage/'.$tweet->image) }}" alt="">
                     @else
-                    <video class="tweetImage" controls controlsList="nodownload" src="{{ Storage::url($tweet->image) }}" muted class="contents_width"></video>
+                    <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage'.$tweet->image) }}" muted class="contents_width"></video>
                     @endif
                 </div>
                 <div class="textRight day">
