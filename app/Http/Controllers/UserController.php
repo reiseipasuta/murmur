@@ -53,7 +53,7 @@ class UserController extends Controller
         // $update = $request->all();
 
         if($request->image != null) {
-            $imagePath = $request->image->store('public/Images');
+            $imagePath = $request->image->store('public/images');
             $imageName = basename($imagePath);
             $user->name = $request->name;
             $user->profile = $request->profile;

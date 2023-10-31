@@ -2,7 +2,7 @@
     <x-slot name="title">
         Tweeeeeter
     </x-slot>
-    
+
         <div class="contents">
             @foreach ($tweets as $tweet)
             <a href="{{ route('createComment', $tweet) }}">
