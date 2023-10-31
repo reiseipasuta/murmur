@@ -3,7 +3,7 @@
         Tweeeeeter
     </x-slot>
 
-
+{{ env('APP_URL') }}
         <div class="contents">
             @foreach ($tweets as $tweet)
             <a href="{{ route('createComment', $tweet) }}">
