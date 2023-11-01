@@ -66,10 +66,10 @@ class Tweet extends Model
             }else{
                 return 'image';
             }
-                ;
-            }
-        }else{
-            ;
+                // ;
+        //     }
+        // }else{
+        //     ;
         }
     }
 
