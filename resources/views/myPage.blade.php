@@ -23,9 +23,11 @@
             {{ $user->profile }}
         </div>
         <div class="profileFollows">
-            <a href="{{ route('followingList', $user) }}">フォロー：{{ $user->followings_count }}</a>
-            <a href="{{ route('followerList', $user) }}">フォロワー：{{ $user->followers_count }}</a>
-            <a href="{{ route('goodList', $user) }}">いいねリスト</a>
+            <a href="{{ route('followingList', $user) }}">{{ $user->followings_count }} フォロー中</a>
+            <a href="{{ route('followerList', $user) }}">{{ $user->followers_count }} フォロワー</a>
+            <p>
+                <a href="{{ route('goodList', $user) }}">いいねリスト</a>
+            </p>
         </div>
 
         @foreach ($myTweets as $myTweet)
@@ -35,11 +37,27 @@
                     <div class="body">
                         {{ $myTweet->body }}
                     </div>
+                    <div class="textCenter">
+                        @if ($myTweet->image === null)
+
+                        @elseif($myTweet->getImageOrVideo($tweet->image))
+                        <img class="tweetImage" src="{{ asset('storage/tweetImages/'.$myTweet->image) }}" alt="">
+                        @else
+                        <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage/tweetImages/'.$myTweet->image.'#t=0.001') }}" muted class="contents_width"></video>
+                        @endif
+                    </div>
                     <div class="textRight day">
                         {{ $myTweet->updated_at }}
                     </div>
                     <div class="flex">
-                        <a href="{{ route('createComment', $myTweet) }}">コメント {{ $myTweet->comments_count }}</a>
+                        <a href="{{ route('createComment', $myTweet) }}">
+                            @if ($myTweet->comments_count == false)
+                                <i class="fa-regular fa-comment fa-lg" style="color: #465a7c;"></i>
+                            @else
+                                <i class="fa-solid fa-comments fa-lg"></i>
+                            @endif
+                            コメント {{ $myTweet->comments_count }}
+                        </a>
                         <span class="editGood">♡ {{ $myTweet->likes_count }}
                         <a href="{{ route('edit', $myTweet) }}">編集</a></span>
                     </div>
