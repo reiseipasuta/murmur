@@ -45,24 +45,33 @@
                 <div class="body">
                     {{ $userTweet->body }}
                 </div>
+                <div class="textCenter">
+                    @if ($userTweet->image === null)
+
+                    @elseif($userTweet->getImageOrVideo($userTweet->image))
+                    <img class="tweetImage" src="{{ asset('storage/tweetImages/'.$userTweet->image) }}" alt="">
+                    @else
+                    <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage/tweetImages/'.$userTweet->image.'#t=0.001') }}" muted class="contents_width"></video>
+                    @endif
+                </div>
                 <div class="textRight day">
                     {{ $userTweet->updated_at }}
                 </div>
                 <div class="flex">
                     <a href="{{ route('createComment', $userTweet) }}">コメント {{ $userTweet->comments_count }}</a>
-                    <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">
+                    <form action="{{ route('likeChange', $userTweet, ) }}" method="post" class="editGood">
                         @csrf
-                        @if($tweet->isLike(Auth::id()))
+                        @if($userTweet->isLike(Auth::id()))
                         {{-- <button>❤︎</button> --}}
                         <button type="submit" class="btnNone">
                             <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
                         </button>
-                        {{ $tweet->likes_count }}
+                        {{ $userTweet->likes_count }}
                         @else
                         <button type="submit" class="btnNone">
                             <i class="fa-regular fa-heart fa-lg" style="color: #963649;"></i>
                         </button>
-                        {{ $tweet->likes_count }}
+                        {{ $userTweet->likes_count }}
                         @endif
                     </form>
                 </div>
