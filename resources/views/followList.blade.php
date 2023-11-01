@@ -5,7 +5,7 @@
 
     <div class="contents">
         <div class="listTitle">
-            いいねリスト
+            <i class="fa-solid fa-heart-circle-plus fa-2xl" style="color: #743e41;"></i>いいねリスト
         </div>
         @if($follows == '[]')
             <p>

@@ -337,10 +337,11 @@ ul > li {
 .listTitle {
     width: 90%;
     margin: 0 auto;
-    padding: 15px 15px 15px 15px;
+    padding: 5px 15px;
     margin-bottom: 30px;
     background-color: rgb(191, 174, 159);
-    border-left: 7px solid rgb(99, 78, 38);
+    border-left: 7px solid rgb(90, 83, 69);
+    border-radius: 20px;
 }
 
 .followingBtn {
