@@ -90,12 +90,21 @@ class TweetController extends Controller
 
     public function update(TweetRequest $request, Tweet $tweet)
     {
-        $tweet->body = $request->body;
-        $tweet->save();
+        if($request->image != null){
+            $imagePath = $request->image->store('public/tweetImages');
+            $imageName = basename($imagePath);
+
+            $tweet->update([
+                $tweet->body = $request->body,
+                $tweet->image = $imageName,
+            ]);
+        }else{
+            $tweet->body = $request->body;
+            $tweet->save();
+        }
 
         return redirect()
             ->route('index');
-
     }
 
     public function destroy(Tweet $tweet)
