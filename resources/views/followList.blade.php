@@ -4,6 +4,9 @@
     </x-slot>
 
     <div class="contents">
+        <div class="listTitle">
+            いいねリスト
+        </div>
         @if($follows == '[]')
             <p>
                 登録しているユーザーはいません。
