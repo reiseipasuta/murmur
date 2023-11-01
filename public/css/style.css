@@ -67,6 +67,10 @@ form {
     display: block;
 }
 
+.inlineBlock {
+    display: inline-block;
+}
+
 .textRight {
     text-align: right;
 }
@@ -257,6 +261,10 @@ ul > li {
     font-weight: bold;
 }
 
+.mypageListLink {
+    margin-left: 15px;
+}
+
 .iconCircle {
     width: 80px;
     height: 80px;
@@ -297,7 +305,14 @@ ul > li {
 }
 
 .profileSentence {
-    margin: 20px 10px;
+    background-color: rgb(211, 198, 181);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.profileSentence > span {
+    color: #5e584b;
 }
 
 .profileFollows {

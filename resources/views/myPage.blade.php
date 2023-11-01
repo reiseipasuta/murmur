@@ -20,14 +20,19 @@
             </div>
         </div>
         <div class="profileSentence">
-            {{ $user->profile }}
+            @if ($user->profile != null)
+                {{ $user->profile }}
+            @else
+                <span>自己紹介未入力</span>
+            @endif
         </div>
         <div class="profileFollows">
-            <a href="{{ route('followingList', $user) }}">{{ $user->followings_count }} フォロー中</a>
-            <a href="{{ route('followerList', $user) }}">{{ $user->followers_count }} フォロワー</a>
-            <p>
+            <a class="inlineBlock mypageListLink" href="{{ route('followingList', $user) }}">{{ $user->followings_count }} フォロー中</a>
+            <a class="inlineBlock mypageListLink" href="{{ route('followerList', $user) }}">{{ $user->followers_count }} フォロワー</a>
+            <span class="inlineBlock mypageListLink">
+                <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
                 <a href="{{ route('goodList', $user) }}">いいねリスト</a>
-            </p>
+            </span>
         </div>
 
         @foreach ($myTweets as $myTweet)
@@ -58,8 +63,10 @@
                             @endif
                             コメント {{ $myTweet->comments_count }}
                         </a>
-                        <span class="editGood">♡ {{ $myTweet->likes_count }}
-                        <a href="{{ route('edit', $myTweet) }}">編集</a></span>
+                        <span class="editGood">
+                            <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i> {{ $myTweet->likes_count }}
+                            <a href="{{ route('edit', $myTweet) }}">編集</a>
+                        </span>
                     </div>
                 </div>
             </li>
