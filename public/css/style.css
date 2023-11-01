@@ -495,7 +495,11 @@ ul > li {
     }
 
     .profileIcon {
-        padding: 20px;
+        padding: 10px;
+    }
+
+    .body {
+        padding-top: 0px;
     }
 
 }
@@ -580,5 +584,9 @@ ul > li {
 
     .profileIcon {
         padding: 10px 0 0 10px;
+    }
+
+    .body {
+        padding-top: 20px;
     }
 }
