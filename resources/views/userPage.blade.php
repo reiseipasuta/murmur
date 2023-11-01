@@ -35,8 +35,12 @@
             @endif
         </div>
         <div class="profileFollows">
-            フォロー数：{{ $user->followings_count }}
-            フォロワー数：{{ $user->followers_count }}
+            <span class="mypageListLink">
+                {{ $user->followings_count }} フォロー中
+            </span>
+            <span class="mypageListLink">
+            {{ $user->followers_count }} フォロワー
+            </span>
         </div>
 
         @foreach ($userTweets as $userTweet)
