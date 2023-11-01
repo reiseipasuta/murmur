@@ -108,13 +108,15 @@ class UserController extends Controller
 
     public function followingList(User $user) {
         $follows = $user->followings()->latest()->get();
-        return view('followList', compact('user', 'follows'));
+        $title = 'フォロー';
+        return view('followList', compact('user', 'follows', 'title'));
 
     }
 
     public function followerList(User $user) {
         $follows = $user->followers()->latest()->get();
-        return view('followList', compact('user', 'follows'));
+        $title = 'フォロワー';
+        return view('followList', compact('user', 'follows', 'title'));
     }
 
     public function register() {

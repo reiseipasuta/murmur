@@ -4,8 +4,11 @@
     </x-slot>
 
     <div class="contents">
+        <div class="listTitle">
+            <i class="fa-solid fa-heart-circle-plus fa-2xl rightMar5" style="color: #743e41;"></i>いいねリスト
+        </div>
         @if($goodTweets == '[]')
-            <p><i class="fa-solid fa-heart-circle-plus fa-2xl" style="color: #743e41;"></i>登録しているポストはありません。</p>
+            <p>登録しているポストはありません。</p>
         @else
             @foreach ($goodTweets as $tweet)
             <div class="post">
