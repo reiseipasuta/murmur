@@ -58,7 +58,14 @@
                     {{ $userTweet->updated_at }}
                 </div>
                 <div class="flex">
-                    <a href="{{ route('createComment', $userTweet) }}">コメント {{ $userTweet->comments_count }}</a>
+                    <a href="{{ route('createComment', $userTweet) }}">
+                        @if ($userTweet->comments_count == false)
+                            <i class="fa-regular fa-comment fa-lg" style="color: #465a7c;"></i>
+                        @else
+                            <i class="fa-solid fa-comments fa-lg"></i>
+                        @endif
+                        コメント {{ $userTweet->comments_count }}
+                    </a>
                     <form action="{{ route('likeChange', $userTweet, ) }}" method="post" class="editGood">
                         @csrf
                         @if($userTweet->isLike(Auth::id()))
