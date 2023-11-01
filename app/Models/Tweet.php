@@ -59,10 +59,10 @@ class Tweet extends Model
             $filetype = $file['extension'];
             // return $filetype;
 
-            if($filetype == 'jpg'||'png'||'gif'){
-                // return 'image';
-                return $filetype;
-            }elseif($filetype == 'mov'||'heif'||'mp4'||'MP4'||'HEIF'||'MOV'){
+            if($filetype === 'jpg'||'png'||'gif'){
+                return 'image';
+                // return $filetype;
+            }elseif($filetype === 'mov'||'heif'||'mp4'||'MP4'||'HEIF'||'MOV'){
                 return 'video';
             }else{
                 ;
