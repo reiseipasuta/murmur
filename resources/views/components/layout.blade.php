@@ -11,7 +11,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="{{ route('index') }}">tweeeeeeter</a>
+            <a href="{{ route('index') }}">MurMur＊</a>
         </div>
         <div class="search">
             <form class="mobile" action="{{ route('index') }}" method="get">
