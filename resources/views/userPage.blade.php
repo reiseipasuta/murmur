@@ -28,7 +28,11 @@
             @endif
         </div>
         <div class="profileSentence">
-            {{ $user->profile }}
+            @if ($user->profile != null)
+                {{ $user->profile }}
+            @else
+                <span>自己紹介未入力</span>
+            @endif
         </div>
         <div class="profileFollows">
             フォロー数：{{ $user->followings_count }}
@@ -46,12 +50,19 @@
                 </div>
                 <div class="flex">
                     <a href="{{ route('createComment', $userTweet) }}">コメント {{ $userTweet->comments_count }}</a>
-                    <form action="{{ route('likeChange', $userTweet, ) }}" method="post" class="editGood">
+                    <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">
                         @csrf
-                        @if($userTweet->isLike(Auth::id()))
-                        <button>❤︎</button>{{ $userTweet->likes_count }}
+                        @if($tweet->isLike(Auth::id()))
+                        {{-- <button>❤︎</button> --}}
+                        <button type="submit" class="btnNone">
+                            <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
+                        </button>
+                        {{ $tweet->likes_count }}
                         @else
-                        <button>♡</button>{{ $userTweet->likes_count }}
+                        <button type="submit" class="btnNone">
+                            <i class="fa-regular fa-heart fa-lg" style="color: #963649;"></i>
+                        </button>
+                        {{ $tweet->likes_count }}
                         @endif
                     </form>
                 </div>

@@ -28,7 +28,6 @@
                     {!! nl2br($tweet->body_link) !!}
                 </div>
                 <div class="textCenter">
-                    {{ $tweet->getImageOrVideo($tweet->image) }}
                     @if ($tweet->image === null)
 
                     @elseif ($tweet->getImageOrVideo($tweet->image) == 'image')

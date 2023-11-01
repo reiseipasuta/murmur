@@ -68,8 +68,8 @@ class Tweet extends Model
             }
                 // ;
         //     }
-        // }else{
-        //     ;
+        }else{
+            ;
         }
     }
 
