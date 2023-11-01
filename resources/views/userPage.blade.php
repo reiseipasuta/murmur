@@ -48,9 +48,9 @@
                 <div class="textCenter">
                     @if ($userTweet->image === null)
 
-                    @elseif($userTweet->getImageOrVideo($userTweet->image))
+                    @elseif ($tweet->getImageOrVideo($tweet->image) == 'image')
                     <img class="tweetImage" src="{{ asset('storage/tweetImages/'.$userTweet->image) }}" alt="">
-                    @else
+                    @elseif ($tweet->getImageOrVideo($tweet->image) == 'video')
                     <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage/tweetImages/'.$userTweet->image.'#t=0.001') }}" muted class="contents_width"></video>
                     @endif
                 </div>
