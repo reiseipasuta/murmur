@@ -242,6 +242,7 @@ ul > li {
 }
 
 .profileIcon {
+    padding: 10px 0 0 10px;
     display: flex;
     align-items: center;
 }
@@ -477,6 +478,10 @@ ul > li {
         padding: 15px;
     }
 
+    .profileIcon {
+        padding: 20px;
+    }
+
 }
 
 
@@ -557,4 +562,7 @@ ul > li {
         margin-right: 10px;
     }
 
+    .profileIcon {
+        padding: 10px 0 0 10px;
+    }
 }
