@@ -16,7 +16,7 @@
             <button class="postBtn">投稿</button>
         </form>
 
-        <div class="mobileForm deleteButton">
+        <div class="deleteButton">
             <form action="{{ route('destroy', $tweet) }}" method="post" id="delete">
                 @method('DELETE')
                 @csrf
