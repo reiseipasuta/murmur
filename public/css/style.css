@@ -533,8 +533,8 @@ summary::-webkit-details-marker {
 
     .post {
         width: 90%;
-        margin: 10px auto;
-        padding: 30px 15px;
+        margin: 25px auto;
+        padding: 15px;
         border-radius: 20px;
     }
 
@@ -567,6 +567,10 @@ summary::-webkit-details-marker {
         margin: 0px;
         padding: 1px 10px;
         border-radius: 20px;
+    }
+
+    .padding15 {
+        padding: 15px;
     }
 
     .newPostIpad {
