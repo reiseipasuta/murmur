@@ -505,10 +505,8 @@ summary::-webkit-details-marker {
 }
 
 .deleteButton {
-    margin-top: 15px;
     text-align: right;
-    padding: 30px;
-
+    padding: 15px 30px 30px 30px;
 }
 
 .deleteButton button{
@@ -529,6 +527,7 @@ summary::-webkit-details-marker {
     border-radius: 20px;
     color: #000000;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 
