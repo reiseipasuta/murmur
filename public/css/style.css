@@ -42,6 +42,10 @@ form {
     margin-right: 5px;
 }
 
+.padding15 {
+    padding: 15px;
+}
+
 .length {
     font-size: small;
     font-weight: bold;
@@ -499,6 +503,8 @@ summary::-webkit-details-marker {
     width: 250px;
     height: 23px;
 }
+
+
 
 
 
