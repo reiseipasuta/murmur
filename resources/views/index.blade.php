@@ -50,12 +50,8 @@
                     </a>
                     @if ($tweet->user_id === Auth::id())
                         <a class="editGood" href="{{ route('edit', $tweet) }}">
-                            {{-- <p class="editGood"> --}}
-
                                 <i class="fa-solid fa-eraser"></i>
-                                {{-- <button id="edit" class="btnNone" onclick="edit_modal_onclick_open();" value="{{ $tweet }}">編集</button> --}}
                                 <button class="btnNone">編集</button>
-                            {{-- </p> --}}
                         </a>
                     @else
                         <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">

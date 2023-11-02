@@ -51,14 +51,23 @@ dd($comments);
                 </div>
                 <div class="flex">
                     @if ($tweet->user_id === Auth::id())
-                        <a class="editGood" href="{{ route('edit', $tweet) }}">編集</a>
+                        <a class="editGood" href="{{ route('edit', $tweet) }}">
+                            <i class="fa-solid fa-eraser"></i>
+                            <button class="btnNone">編集</button>
+                        </a>
                     @else
                         <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">
                             @csrf
                             @if($tweet->isLike(Auth::id()))
-                            <button>❤︎</button>{{ $tweet->likes_count }}
+                            <button type="submit" class="btnNone">
+                                <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
+                            </button>
+                            {{ $tweet->likes_count }}
                             @else
-                            <button>♡</button>{{ $tweet->likes_count }}
+                            <button type="submit" class="btnNone">
+                                <i class="fa-regular fa-heart fa-lg" style="color: #963649;"></i>
+                            </button>
+                            {{ $tweet->likes_count }}
                             @endif
                         </form>
                     @endif
