@@ -11,15 +11,20 @@
             @error('body')
                 <div>{{ $message }}</div>
             @enderror
+            <p>画像変更</p>
             <input type="file" name="image" accept="image/*, video/*">
-            <button>投稿</button>
+            <div>
+                <button>投稿</button>
+            </div>
         </form>
 
-        <form action="{{ route('destroy', $tweet) }}" method="post" id="delete">
-            @method('DELETE')
-            @csrf
-            <button>削除</button>
-        </form>
+        <div class="deleteButton">
+            <form action="{{ route('destroy', $tweet) }}" method="post" id="delete">
+                @method('DELETE')
+                @csrf
+                <button>削除</button>
+            </form>
+        </div>
     </div>
 
 </x-layout>
