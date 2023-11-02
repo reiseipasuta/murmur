@@ -8,22 +8,22 @@ dd($comments);
     <div class="contents">
         <details>
             <summary>
-                {{-- <div class="title"> --}}
-                    コメント新規投稿
-                {{-- </div> --}}
+                コメント新規投稿
             </summary>
-        <form method="POST" action="{{ route('storeComment', $tweet) }}">
-            @csrf
-            <textarea name="body" onkeyup="ShowLength(value);" rows="8">{{ old('body') }}</textarea>
-            <p>
-                <span id="inputlength">0</span><span>/200文字</span>
-            </p>
-            <input type="hidden" name="id" value="{{ $tweet->id }}">
-            @error('body')
-                <div>{{ $message }}</div>
-            @enderror
-            <button>投稿</button>
-        </form>
+            <div class="openForm">
+                <form method="POST" action="{{ route('storeComment', $tweet) }}">
+                    @csrf
+                    <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('body') }}</textarea>
+                    <p class="length">
+                        <span id="inputlength">0</span><span>/200文字</span>
+                    </p>
+                    <input type="hidden" name="id" value="{{ $tweet->id }}">
+                    @error('body')
+                    <div>{{ $message }}</div>
+                    @enderror
+                    <button>投稿</button>
+                </form>
+            </div>
         </details>
 
         <div class="post">
@@ -86,7 +86,7 @@ dd($comments);
                         <li>
                             <div class="profileIcon">
                                 <figure class="iconCircleSmall">
-                                    @if ($tweet->user_id === Auth::id())
+                                    @if ($comment->user_id === Auth::id())
                                     <a href="{{ route('myPage') }}">
                                     @else
                                     <a href="{{ route('userPage', $comment->user) }}">
@@ -108,16 +108,10 @@ dd($comments);
                             </div>
                             <div class="flex">
                                 @if ($comment->user_id === Auth::id())
-                                    <a class="editGood" href="{{ route('editComment', [$tweet, $comment]) }}">編集</a>
-                                {{-- @else
-                                    <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">
-                                        @csrf
-                                        @if($tweet->isLike(Auth::id()))
-                                        <button>❤︎</button>{{ $tweet->likes_count }}
-                                        @else
-                                        <button>♡</button>{{ $tweet->likes_count }}
-                                        @endif
-                                    </form> --}}
+                                    <a class="editGood" href="{{ route('edit', $tweet) }}">
+                                        <i class="fa-solid fa-eraser"></i>
+                                        <button class="btnNone">編集</button>
+                                    </a>
                                 @endif
                             </div>
 
