@@ -505,7 +505,7 @@ summary::-webkit-details-marker {
 }
 
 .deleteButton {
-    margin-top: 30px;
+    margin-top: 15px;
 
 }
 
@@ -514,10 +514,26 @@ summary::-webkit-details-marker {
     height: 30px;
     width: 100px;
     border-radius: 20px;
-    color: #aaa;
+    color: #ffffff;
     font-weight: bold;
     /* border: 1px solid #5e584b; */
 }
+
+.postBtn {
+    display: block;
+    background-color: #5582a7;
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+
+
+
+
 
 
 

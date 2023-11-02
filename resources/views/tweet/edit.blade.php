@@ -12,10 +12,8 @@
                 <div>{{ $message }}</div>
             @enderror
             <p>画像変更</p>
-            <input type="file" name="image" accept="image/*, video/*">
-            <div>
-                <button>投稿</button>
-            </div>
+            <input class="bottomMar10" type="file" name="image" accept="image/*, video/*">
+            <button class="postBtn">投稿</button>
         </form>
 
         <div class="mobileForm deleteButton">
