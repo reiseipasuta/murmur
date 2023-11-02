@@ -6,7 +6,7 @@
 dd($comments);
 ?> --}}
     <div class="contents">
-        <details>
+        {{-- <details>
             <summary>
                 コメント新規投稿
             </summary>
@@ -24,7 +24,8 @@ dd($comments);
                     <button>投稿</button>
                 </form>
             </div>
-        </details>
+        </details> --}}
+
 
         <div class="post">
                 <div class="profileIcon">
@@ -76,6 +77,29 @@ dd($comments);
 
         <p>コメント一覧</p>
         <div class="comment">
+            {{-- コメントフォーム --}}
+            <div class="flex post commentFormColor">
+                <details>
+                    <summary>
+                        <i class="fa-solid fa-comment fa-flip-horizontal fa-xl rightMar5" style="color: #ccc0af;"></i>コメント新規投稿
+                    </summary>
+                    <div class="openForm">
+                        <form method="POST" action="{{ route('storeComment', $tweet) }}">
+                            @csrf
+                            <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('body') }}</textarea>
+                            <p class="length">
+                                <span id="inputlength">0</span><span>/200文字</span>
+                            </p>
+                            <input type="hidden" name="id" value="{{ $tweet->id }}">
+                            @error('body')
+                            <div>{{ $message }}</div>
+                            @enderror
+                            <button>投稿</button>
+                        </form>
+                    </div>
+                </details>
+            </div>
+            {{-- コメントフォームここまで --}}
             @if ($comments == "[]")
                 <div class="commentPost">
                     <p>まだコメントはありません。</p>

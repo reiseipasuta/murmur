@@ -439,8 +439,37 @@ ul > li {
     cursor: pointer;
 }
 
+/* details > form {
+    margin: 0 auto;
+    width: 80%;
+} */
+
+details {
+    flex: 1;
+    margin: 10px;
+}
+
+.commentFormColor {
+    background-color: rgb(122, 114, 107);
+}
+
+.detealsBox {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.openForm textarea{
+    width: 90%;
+    margin: 10px;
+}
+
 details[open] .openForm {
     animation: fadeIn 0.5s ease;
+    margin-top: 5px;
 }
 
 @keyframes fadeIn {
@@ -450,8 +479,20 @@ details[open] .openForm {
     }
     100% {
         opacity: 1;
-        transform: translateY(5px);
+        transform: none;
     }
+}
+
+/* 矢印削除 Chrome、Safari以外 */
+summary {
+    display: block;
+    cursor: pointer;
+    /* text-shadow: 2px 2px 0px #b4b4b4; */
+    font-weight: bold;
+}
+/* 矢印削除 Chrome、Safari */
+summary::-webkit-details-marker {
+    display: none;
 }
 
 
@@ -482,8 +523,7 @@ details[open] .openForm {
     .post {
         width: 90%;
         margin: 25px auto;
-        padding: 15px 15px 15px 15px;
-        background-color: white;
+        padding: 15px;
         border-radius: 20px;
     }
 
@@ -573,7 +613,6 @@ details[open] .openForm {
     .post {
         margin: 0px auto 20px 0;
         padding: 15px;
-        background-color: white;
         border-radius: 20px;
     }
 
