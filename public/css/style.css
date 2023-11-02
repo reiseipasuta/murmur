@@ -506,14 +506,17 @@ summary::-webkit-details-marker {
 
 .deleteButton {
     margin-top: 30px;
+
 }
 
 .deleteButton button{
     background-color: #56493b;
     height: 30px;
-    width: 50px;
-    border-radius: 50%;
-    border: 1px solid #5e584b;
+    width: 100px;
+    border-radius: 20px;
+    color: #aaa;
+    font-weight: bold;
+    /* border: 1px solid #5e584b; */
 }
 
 
