@@ -6,6 +6,7 @@
     <div class="contents">
         <div>
             <div class="square"></div>
+            編集
         </div>
         <form class="mobileForm" method="post" action="{{ route('update', $tweet) }}" enctype="multipart/form-data">
             @method('PATCH')
@@ -14,7 +15,7 @@
             @error('body')
                 <div>{{ $message }}</div>
             @enderror
-            <p class="smallBold">画像変更</p>
+            <div class="square"></div><p class="smallBold">画像変更</p>
             <input type="file" name="image" accept="image/*, video/*">
             <button class="postBtn">投稿</button>
         </form>

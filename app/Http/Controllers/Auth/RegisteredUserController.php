@@ -41,9 +41,23 @@ class RegisteredUserController extends Controller
         if($request->image != null) {
             $imagePath = $request->image->store('public/images');
             $imageName = basename($imagePath);
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'profile' => $request->profile,
+                'image' => $imageName,
+            ]);
         }
         else{
-            $imagePath = null;
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'profile' => $request->profile,
+                'image' => null,
+            ]);
         }
 
         $user = User::create([
