@@ -376,6 +376,7 @@ ul > li {
     width: 7px;
     height: 15px;
     background-color: rgb(91, 122, 153);
+    display: inline;
 }
 
 
