@@ -22,9 +22,6 @@
                         <li class="dropdown_list"><a href="{{ route('emailEditPage', $user) }}">メールアドレス変更</a></li>
                     </ul>
                 </div>
-                {{-- <a href="{{ route('profileEditPage', $user) }}">プロフィール編集</a>
-                <a href="{{ route('passwordEditPage', $user) }}">パスワード変更</a>
-                <a href="{{ route('emailEditPage', $user) }}">メールアドレス変更</a> --}}
             </div>
         </div>
         <div class="profileSentence">
