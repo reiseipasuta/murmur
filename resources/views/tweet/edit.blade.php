@@ -15,7 +15,7 @@
             @error('body')
                 <div>{{ $message }}</div>
             @enderror
-            <div class="square"></div><p class="smallBold">画像変更</p>
+            <div class="square block"></div><p class="smallBold">画像変更</p>
             <input type="file" name="image" accept="image/*, video/*">
             <button class="postBtn block">投稿</button>
         </form>
