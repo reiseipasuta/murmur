@@ -13,15 +13,15 @@
                 @endif
             </figure>
             <p class="name">{{ $user->name }}</p>
-            <div class="rightLink">
-                <div class="profNavi">
-                    <a href="{{ route('profileEditPage', $user) }}">編集</a>
+            <div class="rightLink profNavi">
+                {{-- <div class="profNavi"> --}}
+                    <span>編集</span>
                     <ul class="dropdown_lists">
                         <li class="dropdown_list"><a href="{{ route('profileEditPage', $user) }}">プロフィール編集</a></li>
                         <li class="dropdown_list"><a href="{{ route('passwordEditPage', $user) }}">パスワード変更</a></li>
                         <li class="dropdown_list"><a href="{{ route('emailEditPage', $user) }}">メールアドレス変更</a></li>
                     </ul>
-                </div>
+                {{-- </div> --}}
             </div>
         </div>
         <div class="profileSentence">
