@@ -670,9 +670,9 @@ summary::-webkit-details-marker {
 
 @media screen and (max-width: 580px){
 
-    /* .mobileNone {
+    .mobileNone {
         display: none;
-    } */
+    }
 
     .header {
         width: 90%;
@@ -728,9 +728,9 @@ summary::-webkit-details-marker {
         width: 100%;
     }
 
-    /* .mobileNone {
+    .mobileNone {
         display: none;
-    } */
+    }
 
     .header {
         width: auto;

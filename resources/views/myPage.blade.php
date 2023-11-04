@@ -13,7 +13,7 @@
                 @endif
             </figure>
             <p class="name">{{ $user->name }}</p>
-            <div class="rightLink headerMenu">
+            <div class="rightLink">
                 <div class="profNavi">
                     <a href="{{ route('profileEditPage', $user) }}">編集</a>
                     <ul class="dropdown_lists">
