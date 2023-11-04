@@ -256,6 +256,10 @@ ul > li {
     align-items: center;
 }
 
+.flexProfileIcon > input {
+    margin-left: 30px;
+}
+
 .rightLink {
     margin-left: auto;
 }
@@ -294,6 +298,11 @@ ul > li {
     overflow: hidden;
     position: relative;
     margin: 0;
+}
+
+.flexProfileIcon {
+    display: flex;
+    align-items: center;
 }
 
 .iconImage {
@@ -374,9 +383,9 @@ ul > li {
 .square {
     margin-right: 5px;
     width: 7px;
-    height: 15px;
+    height: 17px;
     background-color: rgb(91, 122, 153);
-    display: inline;
+    display: inline-block;
 }
 
 
@@ -598,7 +607,7 @@ summary::-webkit-details-marker {
 
     .contents {
         margin: 0px;
-        padding: 1px 10px;
+        padding: 10px;
         border-radius: 20px;
     }
 
@@ -620,6 +629,10 @@ summary::-webkit-details-marker {
 
     .body {
         padding: 0 20px 20px 20px;
+    }
+
+    .profileEditContent {
+        margin: 0px 10px 30px 10px;
     }
 
 }
@@ -707,5 +720,14 @@ summary::-webkit-details-marker {
 
     .body {
         padding-top: 20px;
+    }
+
+    .flexProfileIcon {
+        display: block;
+    }
+
+    .flexProfileIcon > input {
+        margin-top: 20px;
+        margin-left: 0;
     }
 }

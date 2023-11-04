@@ -4,12 +4,13 @@
     </x-slot>
 
     <div class="contents">
+        <div class="square"></div>
         <div class="profileEditTitle">プロフィール編集</div>
         <form method="post" action="{{ route('profileEdit', $user) }}" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <div>
-                <div class="flex profileEditContent">
+                <div class="profileEditContent flexProfileIcon">
                     <div class="iconCircle">
                         @if ($user->image === null)
                         <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
@@ -17,9 +18,7 @@
                         <img class="iconImage" src="{{ asset('storage/images/'.$user->image) }}" alt="">
                         @endif
                     </div>
-                    <div class="profileEditContent">
-                        <input name="image" type="file" value="" accept="image/png, image/jpeg">
-                    </div>
+                    <input name="image" type="file" value="" accept="image/png, image/jpeg">
                 </div>
                 <div class="profileEditContent">
                     <div class="flex">
@@ -32,7 +31,7 @@
                     <div class="flex"><div class="square"></div>紹介文</div>
                     <textarea name="profile" id="" cols="30" rows="10">{{ $user->profile }}</textarea>
                 </div>
-                <button>編集</button>
+                <button class="postBtn">編集</button>
             </div>
         </form>
     </div>
