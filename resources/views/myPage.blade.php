@@ -13,7 +13,7 @@
                 @endif
             </figure>
             <p class="name">{{ $user->name }}</p>
-            <div class="rightLink profNavi">
+            <div class="rightLink profNavi" ontouchstart="">
                 {{-- <div class="profNavi"> --}}
                     <span>Menu</span>
                     <ul class="dropdown_lists">
