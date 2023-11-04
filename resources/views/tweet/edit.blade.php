@@ -6,7 +6,7 @@
     <div class="contents">
         <div>
             <div class="square"></div>
-            編集
+            <span class="smallBold">本文編集</span>
         </div>
         <form class="mobileForm" method="post" action="{{ route('update', $tweet) }}" enctype="multipart/form-data">
             @method('PATCH')
