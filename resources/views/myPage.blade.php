@@ -15,7 +15,7 @@
             <p class="name">{{ $user->name }}</p>
             <div class="rightLink profNavi">
                 {{-- <div class="profNavi"> --}}
-                    <span>編集</span>
+                    <span>Menu</span>
                     <ul class="dropdown_lists">
                         <li class="dropdown_list"><a href="{{ route('profileEditPage', $user) }}">プロフィール編集</a></li>
                         <li class="dropdown_list"><a href="{{ route('passwordEditPage', $user) }}">パスワード変更</a></li>
