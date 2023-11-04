@@ -555,9 +555,9 @@ summary::-webkit-details-marker {
     background-color: #806e5c;
 }
 
-/* .profNavi:hover::before {
-    background-color: #56493b;
-} */
+.profNavi:hover::before {
+    background-color: #806e5c;
+}
 
 .profNavi span {
     display: flex;
