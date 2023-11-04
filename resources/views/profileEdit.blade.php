@@ -4,8 +4,7 @@
     </x-slot>
 
     <div class="contents">
-        <div class="square"></div>
-        <div class="profileEditTitle">プロフィール編集</div>
+        <div class="profileEditTitle"><div class="square"></div>プロフィール編集</div>
         <form method="post" action="{{ route('profileEdit', $user) }}" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
