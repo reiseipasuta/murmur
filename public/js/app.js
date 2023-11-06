@@ -2,15 +2,25 @@
 
 
 
-document.getElementById('delete').addEventListener('submit', e => {
+window.addEventListener('DOMContentLoaded',function(){
+
+const del = document.getElementsByClassName("delete");
+console.log(del)
+
+for(let i = 0; i < del.length; i++){
+
+    del[i].addEventListener('submit', e => {
     e.preventDefault();
 
-    if (!confirm('削除しますか？')) {
-        console.log('stop');
-        return;
-    }
 
-    e.target.submit();
+        if (!confirm('削除しますか？')) {
+            console.log('stop');
+            return;
+        }
+
+        e.target.submit();
+    });
+    }
 });
 
 function ShowLength( str ) {
