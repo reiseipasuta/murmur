@@ -25,7 +25,7 @@
                         </div>
                     </a>
                     @if ($tweet->user_id === Auth::id())
-                    <div class="editGood editMenu">
+                    <div class="editGood editMenu ">
                         <label>
                             <input type="checkbox" class="hidden">
                             <div class="modal-overlay"></div>
@@ -44,11 +44,11 @@
                                         <button class="btnNone"><i class="fa-solid fa-trash rightMar5"></i>削除</button>
                                     </form>
                                 </li>
-                                <li class="dropdown_list_close">
+                                {{-- <li class="dropdown_list_close">
                                     <label>
                                     </label>
                                     <span>閉じる</span>
-                                </li>
+                                </li> --}}
                             </ul>
                         </label>
                     </div>
@@ -64,7 +64,7 @@
                     @elseif ($tweet->getImageOrVideo($tweet->image) == 'image')
                     <img class="tweetImage" src="{{ asset('storage/tweetImages/'.$tweet->image) }}" alt="">
                     @elseif ($tweet->getImageOrVideo($tweet->image) == 'video')
-                    <video class="tweetImage" controls controlsList="nodownload" src="{{ asset('storage/tweetImages/'.$tweet->image.'#t=0.001') }}" muted class="contents_width"></video>
+                    <video class="tweetImage" controls controlsList="nodownload" oncontextmenu="return false;" src="{{ asset('storage/tweetImages/'.$tweet->image.'#t=0.001') }}" muted class="contents_width"></video>
                     @endif
                 </div>
                 <div class="textRight day">
@@ -101,48 +101,6 @@
             @endforeach
                 {{ $tweets->links('vendor.pagination.original') }}
         </div>
-
-            <!-- モーダルウィンドウ -->
-
-        {{-- <div id="edit-modal-content">
-            <div class="contents newPostIpad">
-                <div class="title">
-                    <i class="fa-solid fa-pen-nib rightMar5" style="color: #424f67;"></i>編集
-                </div>
-
-                <form method="POST" action="{{ route('update', $tweet) }}" id="post" enctype="multipart/form-data">
-                    @method('PATCH')
-                    @csrf
-                    <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ $tweet->body }}</textarea>
-                    <p class="length">
-                        <span id="inputlength">0</span><span>/200文字</span>
-                    </p>
-                    @error('body')
-                        <div>{{ $message }}</div>
-                    @enderror
-                    <input type="file" name="image" accept="image/*, video/*">
-                    <button>投稿</button>
-                </form>
-                <form action="{{ route('destroy', $tweet) }}" method="post" id="delete">
-                    @method('DELETE')
-                    @csrf
-                    <button>削除</button>
-                </form>
-            </div>
-            <div class="close">
-                    <a id="modal-close" onclick="edit_modal_onclick_close()">
-                    <i class="fa-solid fa-xmark rightMar5"></i>
-                    閉じる
-                </a>
-                </div>
-        </div>
-        <!-- 2番目に表示されるモーダル -->
-        <div id="edit-modal-overlay" onclick="edit_modal_onclick_close()"></div>
-
-        <!-- モーダルウィンドウここまで --> --}}
-
-
-
 
 </x-layout>
 
