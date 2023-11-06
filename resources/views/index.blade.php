@@ -5,23 +5,54 @@
 
         <div class="contents">
             @foreach ($tweets as $tweet)
-            <a href="{{ route('createComment', $tweet) }}">
+            {{-- <a href="{{ route('createComment', $tweet) }}"> --}}
             <div class="post">
-                <div class="profileIcon">
-                    <figure class="iconCircleSmall">
-                        @if ($tweet->user_id === Auth::id())
-                        <a href="{{ route('myPage') }}">
-                        @else
-                        <a href="{{ route('userPage', $tweet->user) }}">
-                        @endif
-                            @if ($tweet->user->image === null)
-                            <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
-                            @else
-                            <img class="iconImage" src="{{ asset('storage/images/'.$tweet->user->image) }}" alt="">
-                            @endif
-                    </figure>
-                            <span class="block name">{{ $tweet->user->name }}</span>
-                        </a>
+                <div class="flex">
+                    @if ($tweet->user_id === Auth::id())
+                    <a href="{{ route('myPage') }}">
+                    @else
+                    <a href="{{ route('userPage', $tweet->user) }}">
+                    @endif
+                        <div class="profileIcon">
+                            <figure class="iconCircleSmall">
+                                @if ($tweet->user->image === null)
+                                <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
+                                @else
+                                <img class="iconImage" src="{{ asset('storage/images/'.$tweet->user->image) }}" alt="">
+                                @endif
+                            </figure>
+                            <span class="name">{{ $tweet->user->name }}</span>
+                        </div>
+                    </a>
+                    @if ($tweet->user_id === Auth::id())
+                    <div class="editGood editMenu">
+                        <label>
+                            <input type="checkbox" class="hidden">
+                            <div class="modal-overlay"></div>
+                            <i class="fa-solid fa-ellipsis fa-lg" style="cursor: pointer;"></i>
+                            <ul class="edit_dropdown_lists">
+                                <a href="{{ route('edit', $tweet) }}">
+                                    <li class="dropdown_list">
+                                        <i class="fa-solid fa-eraser"></i>
+                                        <button class="btnNone">編集</button>
+                                    </li>
+                                </a>
+                                <li class="dropdown_list">
+                                    <form action="{{ route('destroy', $tweet) }}" method="post" class="delete">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btnNone"><i class="fa-solid fa-trash rightMar5"></i>削除</button>
+                                    </form>
+                                </li>
+                                <li class="dropdown_list_close">
+                                    <label>
+                                    </label>
+                                    <span>閉じる</span>
+                                </li>
+                            </ul>
+                        </label>
+                    </div>
+                    @endif
                 </div>
 
                 <div class="body">
@@ -48,16 +79,9 @@
                         @endif
                         コメント {{ $tweet->comments_count }}
                     </a>
-                    @if ($tweet->user_id === Auth::id())
-                        <a class="editGood" href="{{ route('edit', $tweet) }}">
-                                <i class="fa-solid fa-eraser"></i>
-                                <button class="btnNone">編集</button>
-                        </a>
-                    @else
                         <form action="{{ route('likeChange', $tweet, ) }}" method="post" class="editGood">
                             @csrf
                             @if($tweet->isLike(Auth::id()))
-                            {{-- <button>❤︎</button> --}}
                             <button type="submit" class="btnNone">
                                 <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
                             </button>
@@ -69,7 +93,6 @@
                             {{ $tweet->likes_count }}
                             @endif
                         </form>
-                    @endif
                 </div>
 
 

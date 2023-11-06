@@ -15,15 +15,28 @@
             <p class="name">{{ $user->name }}</p>
             <div class="rightLink profNavi" ontouchstart="">
                 {{-- <div class="profNavi"> --}}
-                    <input type="checkbox" id="menu" class="hidden">
-                    <label for="menu">
+                    <label>
+                        <input type="checkbox" class="hidden">
+                        <div class="modal-overlay"></div>
                         <span>Menu</span>
+                        <ul class="dropdown_lists">
+                            <a href="{{ route('profileEditPage', $user) }}">
+                                <li class="dropdown_list">
+                                    プロフィール編集
+                                </li>
+                            </a>
+                            <a href="{{ route('passwordEditPage', $user) }}">
+                                <li class="dropdown_list">
+                                    パスワード変更
+                                </li>
+                            </a>
+                            <a href="{{ route('emailEditPage', $user) }}">
+                                <li class="dropdown_list">
+                                    メールアドレス変更
+                                </li>
+                            </a>
+                        </ul>
                     </label>
-                    <ul class="dropdown_lists">
-                        <li class="dropdown_list"><a href="{{ route('profileEditPage', $user) }}">プロフィール編集</a></li>
-                        <li class="dropdown_list"><a href="{{ route('passwordEditPage', $user) }}">パスワード変更</a></li>
-                        <li class="dropdown_list"><a href="{{ route('emailEditPage', $user) }}">メールアドレス変更</a></li>
-                    </ul>
 
                 {{-- </div> --}}
             </div>
@@ -46,8 +59,55 @@
 
         @foreach ($myTweets as $myTweet)
         <div class="post">
-            <li>
-                <div>
+            <div class="flex">
+                @if ($myTweet->user_id === Auth::id())
+                <a href="{{ route('myPage') }}">
+                @else
+                <a href="{{ route('userPage', $myTweet->user) }}">
+                @endif
+                    <div class="profileIcon">
+                        <figure class="iconCircleSmall">
+                            @if ($myTweet->user->image === null)
+                            <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
+                            @else
+                            <img class="iconImage" src="{{ asset('storage/images/'.$myTweet->user->image) }}" alt="">
+                            @endif
+                        </figure>
+                        <span class="name">{{ $myTweet->user->name }}</span>
+                    </div>
+                </a>
+                @if ($myTweet->user_id === Auth::id())
+                <div class="editGood editMenu">
+                    <label>
+                        <input type="checkbox" class="hidden">
+                        <div class="modal-overlay"></div>
+                        <i class="fa-solid fa-ellipsis fa-lg" style="cursor: pointer;"></i>
+                        <ul class="edit_dropdown_lists">
+                            <a href="{{ route('edit', $myTweet) }}">
+                                <li class="dropdown_list">
+                                    <i class="fa-solid fa-eraser"></i>
+                                    <button class="btnNone">編集</button>
+                                </li>
+                            </a>
+                            <li class="dropdown_list">
+                                <form action="{{ route('destroy', $myTweet) }}" method="post" class="delete">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btnNone"><i class="fa-solid fa-trash rightMar5"></i>削除</button>
+                                </form>
+                            </li>
+                            <li class="dropdown_list_close">
+                                <label>
+                                </label>
+                                <span>閉じる</span>
+                            </li>
+                        </ul>
+                    </label>
+                </div>
+                @endif
+            </div>
+
+
                     <div class="body">
                         {{ $myTweet->body }}
                     </div>
@@ -72,13 +132,22 @@
                             @endif
                             コメント {{ $myTweet->comments_count }}
                         </a>
-                        <span class="editGood">
-                            <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i> {{ $myTweet->likes_count }}
-                            <a href="{{ route('edit', $myTweet) }}">編集</a>
-                        </span>
+                        <form action="{{ route('likeChange', $myTweet, ) }}" method="post" class="editGood">
+                            @csrf
+                            @if($myTweet->isLike(Auth::id()))
+                            <button type="submit" class="btnNone">
+                                <i class="fa-solid fa-heart fa-lg" style="color: #963649;"></i>
+                            </button>
+                            {{ $myTweet->likes_count }}
+                            @else
+                            <button type="submit" class="btnNone">
+                                <i class="fa-regular fa-heart fa-lg" style="color: #963649;"></i>
+                            </button>
+                            {{ $myTweet->likes_count }}
+                            @endif
+                        </form>
                     </div>
-                </div>
-            </li>
+
         </div>
         @endforeach
     </div>
