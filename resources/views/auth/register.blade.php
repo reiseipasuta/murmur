@@ -62,6 +62,7 @@
                         </div>
                         <textarea name="profile" id="" cols="30" rows="10" placeholder="自己紹介"></textarea>
                         <p class="smallBold bottomMar10">200文字以内</p>
+                        <x-input-error :messages="$errors->get('profile')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
@@ -70,6 +71,7 @@
                             <x-input-label class="registerText" for="password_confirmation" :value="__('アイコン画像')" />
                         </div>
                         <input name="image" type="file" value="" accept="image/png, image/jpeg">
+                        <x-input-error :messages="$errors->get('image')" class="mt-2" />
                     </div>
 
                     <div class="flex items-center justify-end mt-4">

@@ -34,8 +34,8 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile' => ['string', 'max:300', 'nullable'],
-            'image' => [ 'max:102400', 'nullable'],
+            'profile' => ['string', 'max:200', 'nullable'],
+            'image' => ['max:102400', 'nullable'],
         ]);
 
         if($request->image != null) {
