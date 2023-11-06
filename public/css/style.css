@@ -555,9 +555,9 @@ summary::-webkit-details-marker {
     background-color: #806e5c;
 }
 
-.profNavi:hover::before {
-    background-color: #806e5c;
-}
+/* .profNavi:hover::before {
+    background-color: #56493b;
+} */
 
 .profNavi span {
     display: flex;
@@ -568,13 +568,13 @@ summary::-webkit-details-marker {
     text-decoration: none;
     color: #ffffff;
     transition: all .3s;
-    /* font-weight: bold; */
+    font-size: larger;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing : 2px;
 }
 
 .profNavi:hover span {
-    color: #45657a;
+    color: #6491ae;
 }
 
 
@@ -586,16 +586,16 @@ summary::-webkit-details-marker {
     left: 0;
     font-size: small;
     font-weight: bold;
-    visibility: hidden;
     transition: all .3s;
+    /* display: none; */
+    visibility: hidden;
     opacity: 0;
 }
 
-.profNavi:hover .dropdown_lists {
-    /* display: block; */
+/* .profNavi:active .dropdown_lists {
     visibility: visible;
     opacity: 1;
-}
+} */
 
 .dropdown_list {
     background-color: #7da2bf;
@@ -635,6 +635,24 @@ summary::-webkit-details-marker {
 ul {
     margin: 0;
 }
+
+.hidden {
+    display: none;
+}
+
+.hidden:checked ~ .dropdown_lists{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -15,12 +15,16 @@
             <p class="name">{{ $user->name }}</p>
             <div class="rightLink profNavi" ontouchstart="">
                 {{-- <div class="profNavi"> --}}
-                    <span>Menu</span>
+                    <input type="checkbox" id="menu" class="hidden">
+                    <label for="menu">
+                        <span>Menu</span>
+                    </label>
                     <ul class="dropdown_lists">
                         <li class="dropdown_list"><a href="{{ route('profileEditPage', $user) }}">プロフィール編集</a></li>
                         <li class="dropdown_list"><a href="{{ route('passwordEditPage', $user) }}">パスワード変更</a></li>
                         <li class="dropdown_list"><a href="{{ route('emailEditPage', $user) }}">メールアドレス変更</a></li>
                     </ul>
+
                 {{-- </div> --}}
             </div>
         </div>
