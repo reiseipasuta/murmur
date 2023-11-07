@@ -96,11 +96,6 @@
                                     <button class="btnNone"><i class="fa-solid fa-trash rightMar5"></i>削除</button>
                                 </form>
                             </li>
-                            <li class="dropdown_list_close">
-                                <label>
-                                </label>
-                                <span>閉じる</span>
-                            </li>
                         </ul>
                     </label>
                 </div>
