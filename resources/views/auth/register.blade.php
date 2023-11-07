@@ -60,8 +60,10 @@
                             <div class="square"></div>
                             <x-input-label class="registerText" for="password_confirmation" :value="__('プロフィール')" />
                         </div>
-                        <textarea name="profile" id="" cols="30" rows="10" placeholder="自己紹介"></textarea>
-                        <p class="smallBold bottomMar10">200文字以内</p>
+                        <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('body') }}</textarea>
+                        <p class="length">
+                            <span id="inputlength">0</span><span>/200文字</span>
+                        </p>
                         <x-input-error :messages="$errors->get('profile')" class="mt-2" />
                     </div>
 
@@ -79,7 +81,7 @@
                             {{ __('Already registered?') }}
                         </a> --}}
 
-                        <x-primary-button class="ml-4">
+                        <x-primary-button class="postBtn">
                             {{ __('登録') }}
                         </x-primary-button>
                     </div>

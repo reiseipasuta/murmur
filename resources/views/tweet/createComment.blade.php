@@ -78,7 +78,7 @@ dd($comments);
         <p>コメント一覧</p>
         <div class="comment">
             {{-- コメントフォーム --}}
-            <div class="flex width100">
+            <div class="flex width100 justCenter">
                 <div class="commentForm">
                     <details>
                         <summary class="textCenter">

@@ -46,6 +46,10 @@ form {
     margin-right: 5px;
 }
 
+.leftMar10 {
+    margin-left: 10px;
+}
+
 .padding15 {
     padding: 15px;
 }
@@ -69,6 +73,10 @@ form {
 .flex {
     display: flex;
     align-items: center;
+}
+
+.justCenter {
+    justify-content: center;
 }
 
 .block {

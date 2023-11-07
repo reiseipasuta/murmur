@@ -9,8 +9,31 @@
             @method('PATCH')
             @csrf
             <div>
-                新しいパスワード<input type="text" name="password">
-                <button>編集</button>
+                <div>
+                    @if (session('worning'))
+                        <div>
+                            {{ session('worning') }}
+                        </div>
+                    @endif
+
+                    <div class="square"></div>現在のパスワード<input class="bottomMar10 leftMar10" type="text" name="oldPassword" value="{{ old('oldPassword') }}">
+
+                </div>
+                <div>
+                    <div class="square"></div>新しいパスワード<input class="bottomMar10 leftMar10" type="text" name="password"  value="{{ old('password') }}">
+                    @foreach ($errors->all() as $error)
+                    {{ $error }}
+                    @endforeach
+                </div>
+                <div>
+                    <div class="square"></div>新しいパスワード(確認)<input  class="bottomMar10 leftMar10" type="text" name="password_confirmation"  value="{{ old('password_confirmation') }}">
+                    @if (session('check'))
+                        <div>
+                            {{ session('check') }}
+                        </div>
+                    @endif
+                </div>
+                <button class="postBtn">編集</button>
             </div>
         </form>
     </div>

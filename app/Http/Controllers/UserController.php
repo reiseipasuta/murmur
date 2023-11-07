@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Tweet;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Tweet;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class UserController extends Controller
 {
@@ -46,11 +48,13 @@ class UserController extends Controller
     }
 
     public function profileEditPage(User $user) {
+        $user->checkUser($user);
         return view('profileEdit', compact('user'));
     }
 
     public function profileEdit(User $user, Request $request) {
         // $update = $request->all();
+        $user->checkUser($user);
 
         if($request->image != null) {
             $imagePath = $request->image->store('public/images');
@@ -71,42 +75,65 @@ class UserController extends Controller
     }
 
     public function passwordEditPage(User $user) {
+
+        $user->checkUser($user);
+
         return view('passwordEdit', compact('user'));
     }
 
-    public function passwordEdit(User $user, Request $request) {
-        // $update = $request->all();
-        $user->update([
-            $user->password = $request->password
-        ]);
+    public function passwordEdit(User $user, ProfileUpdateRequest $request) {
 
-        return redirect()->route('myPage');
+        $user->checkUser($user);
+
+        if(password_verify($request->oldPassword,$user->password)){
+            if($request->password == $request->password_confirmation){
+                $user->update([
+                    $user->password = 'password' => Hash::make($request->password)
+                ]);
+                return redirect()->route('myPage');
+            }else{
+                return redirect()->route('passwordEditPage', $user)->with('check', '確認用パスワードが異なっています。');
+            }
+        }else{
+            return redirect()->route('passwordEditPage', $user)->with('worning', 'パスワードが違います。');
+        }
     }
 
     public function emailEditPage(User $user) {
+
+        $user->checkUser($user);
         return view('emailEdit', compact('user'));
     }
 
     public function emailEdit(User $user, Request $request) {
-        // $update = $request->all();
-        $user->update([
-            $user->email = $request->email
-        ]);
+
+        $user->checkUser($user);
+
+        if($request->email == $user->email){
+
+            $user->update([
+                $user->email = $request->email
+            ]);
+
+        }
 
         return redirect()->route('myPage');
     }
 
     public function followStore(User $user) {
+        $user->checkUser($user);
         $user->followers()->attach(Auth::id());
         return redirect()->route('userPage', $user);
     }
 
     public function followDestroy(User $user) {
+        $user->checkUser($user);
         $user->followers()->detach(Auth::id());
         return redirect()->route('userPage', $user);
     }
 
     public function followingList(User $user) {
+        $user->checkUser($user);
         $follows = $user->followings()->latest()->get();
         $title = 'フォロー';
         return view('followList', compact('user', 'follows', 'title'));
@@ -114,6 +141,7 @@ class UserController extends Controller
     }
 
     public function followerList(User $user) {
+        $user->checkUser($user);
         $follows = $user->followers()->latest()->get();
         $title = 'フォロワー';
         return view('followList', compact('user', 'follows', 'title'));
@@ -137,15 +165,18 @@ class UserController extends Controller
     // }
 
     public function destroy(User $user) {
+        $user->checkUser($user);
         $user->delete();
         return view('index');
     }
 
     public function edit(User $user) {
+        $user->checkUser($user);
         return view('edit', compact('user'));
     }
 
     public function update(Request $request, User $user) {
+        $user->checkUser($user);
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -159,6 +190,7 @@ class UserController extends Controller
 
     public function goodList(User $user)
     {
+        $user->checkUser($user);
         $goodTweets = $user->likes()->latest()->get();
         return view('goodList', compact('goodTweets'));
     }

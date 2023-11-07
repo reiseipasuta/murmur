@@ -37,13 +37,13 @@
             </div>
 
             <div class="items-center justify-end mt-4 bottomMar10">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                         {{ __('パスワードをお忘れの方') }}
                     </a>
-                @endif
+                @endif --}}
 
-                <x-primary-button class="ml-3">
+                <x-primary-button class="postBtn">
                     {{ __('ログイン') }}
                 </x-primary-button>
             </div>

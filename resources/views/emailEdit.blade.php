@@ -10,7 +10,7 @@
             @csrf
             <div>
                 新しいメールアドレス<input type="text" name="email">
-                <button>編集</button>
+                <button class="postBtn">編集</button>
             </div>
         </form>
     </div>
