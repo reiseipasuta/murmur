@@ -35,6 +35,15 @@
                                     メールアドレス変更
                                 </li>
                             </a>
+                            <li class="dropdown_list">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button class="btnNone">
+                                        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: rgb(46, 66, 103)"></i>
+                                        ログアウト
+                                    </button>
+                                </form>
+                            </li>
                         </ul>
                     </label>
 

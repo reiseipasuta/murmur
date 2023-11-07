@@ -72,7 +72,7 @@
                             <div>{{ $message }}</div>
                         @enderror
                         <input type="file" name="image" accept="image/*, video/*">
-                        <span>（300MB以内）</span>
+                        <div>（300MB以内）</div>
                         @error('image')
                             <div>{{ $message }}</div>
                         @enderror
@@ -116,80 +116,11 @@
         @endguest
     </div>
     <div class="container">
-        {{-- <div class="menu">
-            @auth
-                <div class="iconCircle">
-                    <a href="{{ route('myPage') }}">
-                        @if (Auth::user()->image === null)
-                        <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
-                        @else
-                        <img class="iconImage" src="{{ Storage::url(Auth::user()->image) }}" alt="">
-                        @endif
-                    </a>
-                </div>
-                <a href="{{ route('myPage') }}">{{ Auth::user()->name }}</a>
-                <div>
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <input type="submit" value="ログアウト">
-                    </form>
-                </div>
-                <div class="btnFixed">
-                    <a href="{{ route('create') }}"><span class="btnContent">New<br>Post</span></a>
-                </div>
-            @endauth
-            @guest
-                    <div class="iconCircle">
-                        <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
-                    </div>
-                    <span class="logout"><a href="{{ route('login') }}">ログイン</a></span>
-                    <span class="logout"><a href="{{ route('register') }}">新規登録</a></span>
-
-                </a>
-            @endguest
-        </div> --}}
-
 
     {{ $slot }}
 
     </div>
 
-    <script>
-
-document.querySelector('textarea').addEventListener('input', () => {
-    if(document.querySelector('textarea').value.length > 169){
-
-        document.getElementById('inputlength').style.color = "brown";
-    }else{
-        document.getElementById('inputlength').style.color = "black";
-    }
-    // document.getElementById('text').value.length
-})
-
-
-    //     const error = @json($errors);
-
-    //     // if(!@json($errors).length){
-    //     if(error == '[]' || '{}'){
-    //     // if(!@json($errors) == '{}'){
-    //         console.log(@json($errors));
-    //         document.getElementById("modal-content").style.display = "block";
-    // document.getElementById("modal-overlay").style.display = "block";
-    //     }else{
-    //         console.log('alse');
-    //         console.log(@json($errors));
-    //     }
-//         document.getElementById('post').addEventListener('submit', e => {
-//     e.preventDefault();
-
-//     if (!($message = [])) {
-//         document.getElementById('error').innerHTML = $message;
-//         return;
-//     }
-
-//     e.target.submit();
-// });
-    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
