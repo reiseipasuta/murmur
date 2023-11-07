@@ -18,6 +18,15 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'password' => ['string', 'max:30', 'min:4'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'password.max' => '30文字以内で入力してください。',
+            'password.min' => '4文字以上で入力してください。',
         ];
     }
 }
