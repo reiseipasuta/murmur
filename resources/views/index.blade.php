@@ -97,7 +97,6 @@
 
 
             </div>
-        </a>
             @endforeach
                 {{ $tweets->links('vendor.pagination.original') }}
         </div>

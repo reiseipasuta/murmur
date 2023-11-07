@@ -28,6 +28,10 @@ form {
     margin: 0;
 }
 
+.width100 {
+    width: 100%;
+}
+
 .smallBold {
     font-size: small;
     font-weight: bold;
@@ -438,12 +442,16 @@ ul > li {
 } */
 
 details {
-    flex: 1;
+    /* flex: 1; */
     margin: 10px;
 }
 
-.commentFormColor {
+.commentForm {
+    width: 90%;
     background-color: rgb(122, 114, 107);
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .detealsBox {

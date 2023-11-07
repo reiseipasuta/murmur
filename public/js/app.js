@@ -13,7 +13,7 @@ for(let i = 0; i < del.length; i++){
     e.preventDefault();
 
 
-        if (!confirm('削除しますか？')) {
+        if (!confirm('削除しますか？この操作は取り消し出来ません。')) {
             console.log('stop');
             return;
         }
@@ -60,7 +60,9 @@ function edit_modal_onclick_close(){
 document.querySelector('textarea').addEventListener('input', () => {
     if(document.querySelector('textarea').value.length > 169){
 
-        document.getElementById('inputlength').style.color = "red";
+        document.getElementById('inputlength').style.color = "brown";
+    }else{
+        document.getElementById('inputlength').style.color = "black";
     }
     // document.getElementById('text').value.length
 })
