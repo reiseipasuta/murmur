@@ -70,8 +70,12 @@
                         </p>
                         @error('body')
                             <div>{{ $message }}</div>
-                            @enderror
+                        @enderror
                         <input type="file" name="image" accept="image/*, video/*">
+                        <span>（300MB以内）</span>
+                        @error('image')
+                            <div>{{ $message }}</div>
+                        @enderror
                         <button>投稿</button>
                     </form>
                 </div>

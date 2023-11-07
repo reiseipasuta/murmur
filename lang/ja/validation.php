@@ -92,7 +92,8 @@ return [
     'max' => [
         'array' => 'The :attribute field must not have more than :max items.',
         // 'file' => 'The :attribute field must not be greater than :max kilobytes.',
-        'file' => '投稿できる:attributeは:valueキロバイト以下となります。',
+        // 'file' => '投稿できる:attributeは:valueキロバイト以下となります。',
+        'file' => ':attributeのサイズが上限を超えています。',
         'numeric' => 'The :attribute field must not be greater than :max.',
         // 'string' => 'The :attribute field must not be greater than :max characters.',
         'string' => ':attributeは:max文字以内でご入力下さい。',

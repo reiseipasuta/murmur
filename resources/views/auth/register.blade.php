@@ -68,7 +68,7 @@
                     <div class="mt-4">
                         <div class="flex">
                             <div class="square"></div>
-                            <x-input-label class="registerText" for="password_confirmation" :value="__('アイコン画像')" />
+                            <x-input-label class="registerText" for="password_confirmation" :value="__('アイコン画像 (10MB以内)')" />
                         </div>
                         <input name="image" type="file" value="" accept="image/png, image/jpeg">
                         <x-input-error :messages="$errors->get('image')" class="mt-2" />
