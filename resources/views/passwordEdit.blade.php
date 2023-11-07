@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="contents">
-        <div class="profileEditTitle">プロフィール編集</div>
+        <div class="profileEditTitle">パスワード編集</div>
         <form method="post" action="{{ route('passwordEdit', $user) }}">
             @method('PATCH')
             @csrf

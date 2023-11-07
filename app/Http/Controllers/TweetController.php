@@ -95,8 +95,8 @@ class TweetController extends Controller
             $imageName = basename($imagePath);
 
             $tweet->update([
-                $tweet->body = $request->body,
-                $tweet->image = $imageName,
+                'body' => $request->body,
+                'image' => $imageName,
             ]);
         }else{
             $tweet->body = $request->body;

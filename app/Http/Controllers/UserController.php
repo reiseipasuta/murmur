@@ -88,14 +88,14 @@ class UserController extends Controller
         if(password_verify($request->oldPassword,$user->password)){
             if($request->password == $request->password_confirmation){
                 $user->update([
-                    $user->password = 'password' => Hash::make($request->password)
+                    'password' => Hash::make($request->password)
                 ]);
                 return redirect()->route('myPage');
             }else{
                 return redirect()->route('passwordEditPage', $user)->with('check', '確認用パスワードが異なっています。');
             }
         }else{
-            return redirect()->route('passwordEditPage', $user)->with('worning', 'パスワードが違います。');
+            return redirect()->route('passwordEditPage', $user)->with('warning', 'パスワードが違います。');
         }
     }
 
@@ -105,19 +105,22 @@ class UserController extends Controller
         return view('emailEdit', compact('user'));
     }
 
-    public function emailEdit(User $user, Request $request) {
+    public function emailEdit(User $user, ProfileUpdateRequest $request) {
 
         $user->checkUser($user);
 
-        if($request->email == $user->email){
-
-            $user->update([
-                $user->email = $request->email
-            ]);
-
+        if(password_verify($request->password,$user->password)){
+            if($request->email == $request->email_confirmation){
+                $user->update([
+                    'email' => $request->email,
+                ]);
+                return redirect()->route('myPage');
+            }else{
+                return redirect()->route('emailEditPage', $user)->with('check', '確認用メールアドレスが異なっています。');
+            }
+        }else{
+            return redirect()->route('emailEditPage', $user)->with('warning', 'パスワードが違います。');
         }
-
-        return redirect()->route('myPage');
     }
 
     public function followStore(User $user) {
