@@ -112,6 +112,16 @@ form {
     margin-right: 30px;
 }
 
+.searchBtn {
+    background-color: #93a8b7;
+    margin-right: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
 .container {
     width: 80%;
     margin: 0px auto;

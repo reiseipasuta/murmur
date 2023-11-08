@@ -124,19 +124,16 @@ class UserController extends Controller
     }
 
     public function followStore(User $user) {
-        $user->checkUser($user);
         $user->followers()->attach(Auth::id());
         return redirect()->route('userPage', $user);
     }
 
     public function followDestroy(User $user) {
-        $user->checkUser($user);
         $user->followers()->detach(Auth::id());
         return redirect()->route('userPage', $user);
     }
 
     public function followingList(User $user) {
-        $user->checkUser($user);
         $follows = $user->followings()->latest()->get();
         $title = 'フォロー';
         return view('followList', compact('user', 'follows', 'title'));
@@ -144,7 +141,6 @@ class UserController extends Controller
     }
 
     public function followerList(User $user) {
-        $user->checkUser($user);
         $follows = $user->followers()->latest()->get();
         $title = 'フォロワー';
         return view('followList', compact('user', 'follows', 'title'));

@@ -17,7 +17,7 @@
             <form class="mobile" action="{{ route('index') }}" method="get">
                 @csrf
                 <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" placeholder="検索">
-                <button class="mobileNone">検索</button>
+                <button class="mobileNone searchBtn">検索</button>
                 {{-- {{ $errors }} --}}
             </form>
         </div>
@@ -76,7 +76,7 @@
                         @error('image')
                             <div>{{ $message }}</div>
                         @enderror
-                        <button>投稿</button>
+                        <button class="postBtn">投稿</button>
                     </form>
                 </div>
                 <div class="close">
