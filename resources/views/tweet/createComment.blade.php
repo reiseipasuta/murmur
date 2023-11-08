@@ -6,45 +6,55 @@
 dd($comments);
 ?> --}}
     <div class="contents">
-        {{-- <details>
-            <summary>
-                コメント新規投稿
-            </summary>
-            <div class="openForm">
-                <form method="POST" action="{{ route('storeComment', $tweet) }}">
-                    @csrf
-                    <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('body') }}</textarea>
-                    <p class="length">
-                        <span id="inputlength">0</span><span>/200文字</span>
-                    </p>
-                    <input type="hidden" name="id" value="{{ $tweet->id }}">
-                    @error('body')
-                    <div>{{ $message }}</div>
-                    @enderror
-                    <button>投稿</button>
-                </form>
-            </div>
-        </details> --}}
-
-
         <div class="post">
-                <div class="profileIcon">
-                    <figure class="iconCircleSmall">
-                        @if ($tweet->user_id === Auth::id())
-                        <a href="{{ route('myPage') }}">
-                        @else
-                        <a href="{{ route('userPage', $tweet->user) }}">
-                        @endif
+            <div class="flex">
+                @if ($tweet->user_id === Auth::id())
+                <a href="{{ route('myPage') }}">
+                @else
+                <a href="{{ route('userPage', $tweet->user) }}">
+                @endif
+                    <div class="profileIcon">
+                        <figure class="iconCircleSmall">
                             @if ($tweet->user->image === null)
                             <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
                             @else
                             <img class="iconImage" src="{{ asset('storage/images/'.$tweet->user->image) }}" alt="">
                             @endif
-                    </figure>
-                            <span class="block name">{{ $tweet->user->name }}</span>
-                        </a>
+                        </figure>
+                        <span class="name">{{ $tweet->user->name }}</span>
+                    </div>
+                </a>
+                @if ($tweet->user_id === Auth::id())
+                <div class="editGood editMenu">
+                    <label>
+                        <input type="checkbox" class="hidden">
+                        <div class="modal-overlay"></div>
+                        <i class="fa-solid fa-ellipsis fa-lg" style="cursor: pointer;"></i>
+                        <ul class="edit_dropdown_lists">
+                            <a href="{{ route('edit', $tweet) }}">
+                                <li class="dropdown_list">
+                                    <i class="fa-solid fa-eraser"></i>
+                                    <button class="btnNone">編集</button>
+                                </li>
+                            </a>
+                            <li class="dropdown_list">
+                                <form action="{{ route('destroy', $tweet) }}" method="post" class="delete">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btnNone"><i class="fa-solid fa-trash rightMar5"></i>削除</button>
+                                </form>
+                            </li>
+                            {{-- <li class="dropdown_list_close">
+                                <label>
+                                </label>
+                                <span>閉じる</span>
+                            </li> --}}
+                        </ul>
+                    </label>
                 </div>
-                <div class="body">
+                @endif
+            </div>
+            <div class="body">
                     {!! nl2br($tweet->body_link) !!}
                 </div>
                 <div class="textRight day">
