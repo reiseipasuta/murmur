@@ -10,17 +10,16 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">
-            <a href="{{ route('index') }}">MurMur＊</a>
-        </div>
-        <div class="search">
-            <form class="mobile" action="{{ route('index') }}" method="get">
-                @csrf
-                <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" placeholder="検索">
-                <button class="mobileNone searchBtn">検索</button>
-                {{-- {{ $errors }} --}}
-            </form>
-        </div>
+            <div class="logo">
+                <a href="{{ route('index') }}">MurMur＊</a>
+            </div>
+            {{-- <div class="search">
+                <form class="mobile" action="{{ route('index') }}" method="get">
+                    @csrf
+                    <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" placeholder="検索">
+                    <button class="mobileNone searchBtn">検索</button>
+                </form>
+            </div> --}}
         @auth
             <div class="rightLink">
                 <div class="iconCircle">

@@ -4,6 +4,14 @@
     </x-slot>
 
         <div class="contents">
+            <div class="search textRight">
+                <form class="mobile" action="{{ route('index') }}" method="get">
+                    @csrf
+                    <input type="text" name="keyword" value="@if (isset($keyword)) {{ $keyword }} @endif" placeholder="検索">
+                    <button class="mobileNone searchBtn">検索</button>
+                    {{-- {{ $errors }} --}}
+                </form>
+            </div>
             @foreach ($tweets as $tweet)
             {{-- <a href="{{ route('createComment', $tweet) }}"> --}}
             <div class="post">
@@ -25,7 +33,7 @@
                         </div>
                     </a>
                     @if ($tweet->user_id === Auth::id())
-                    <div class="editGood editMenu ">
+                    <div class="editGood editMenu">
                         <label>
                             <input type="checkbox" class="hidden">
                             <div class="modal-overlay"></div>
@@ -97,9 +105,12 @@
 
 
             </div>
+        </a>
             @endforeach
                 {{ $tweets->links('vendor.pagination.original') }}
         </div>
+
+
 
 </x-layout>
 
