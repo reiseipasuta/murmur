@@ -423,6 +423,17 @@ ul > li {
     border: dotted white;
 }
 
+.followingListBtn {
+    margin-bottom: 17px;
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 20px;
+    font-weight: bold;
+    border: dotted white;
+}
+
 .followBtn {
     margin-right: 30px;
     width: 120px;
@@ -432,6 +443,25 @@ ul > li {
     border-radius: 20px;
     font-weight: bold;
     border: dotted black;
+}
+
+.followListFlex {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.followListFlex form{
+    margin-left: auto;
+}
+
+/* .followListProf {
+    margin-left: 40px;
+} */
+
+.followListProf {
+    margin-top: 13px;
+    padding: 0 10px;
 }
 
 .square {
