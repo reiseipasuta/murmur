@@ -23,13 +23,13 @@
             <button class="postBtn block">投稿</button>
         </form>
 
-        <div class="deleteButton">
+        {{-- <div class="deleteButton">
             <form action="{{ route('destroy', $tweet) }}" method="post" id="delete">
                 @method('DELETE')
                 @csrf
                 <button>削除</button>
             </form>
-        </div>
+        </div> --}}
     </div>
 
 </x-layout>

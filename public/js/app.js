@@ -5,7 +5,6 @@
 window.addEventListener('DOMContentLoaded',function(){
 
 const del = document.getElementsByClassName("delete");
-console.log(del)
 
 for(let i = 0; i < del.length; i++){
 

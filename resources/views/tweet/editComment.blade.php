@@ -4,6 +4,10 @@
     </x-slot>
 
     <div class="contents">
+        <div>
+            <div class="square"></div>
+            <span class="smallBold">コメント編集</span>
+        </div>
         <form method="post" action="{{ route('updateComment', ['tweet' => $tweet, 'comment' => $comment]) }}">
             @method('PATCH')
             @csrf
@@ -11,15 +15,15 @@
             @error('body')
                 <div>{{ $message }}</div>
             @enderror
-            <button>投稿</button>
+            <button class="postBtn block">投稿</button>
         </form>
-        <form action="{{ route('destroyComment', ['tweet' => $tweet, 'comment' => $comment]) }}" method="post" id="delete">
+        {{-- <form action="{{ route('destroyComment', ['tweet' => $tweet, 'comment' => $comment]) }}" method="post" id="delete">
             @method('DELETE')
             @csrf
             <button>削除</button>
-        </form>
+        </form> --}}
 
-        <script>
+        {{-- <script>
             'use strict';
 
             {
@@ -33,7 +37,7 @@
                     e.target.submit();
                 });
             }
-        </script>
+        </script> --}}
     </div>
 
 </x-layout>
