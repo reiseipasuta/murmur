@@ -24,7 +24,12 @@
                         <div class="square"></div>
                         名前
                     </div>
+                    @if (Auth::id() === 6)
+                    <input type="text" value="{{ $user->name }}" disabled>
+                    <input type="hidden" name="name" value="{{ $user->name }}">
+                    @else
                     <input type="text" name="name" value="{{ $user->name }}">
+                    @endif
                 </div>
                 <div class="profileEditContent">
                     <div class="flex"><div class="square"></div>紹介文</div>

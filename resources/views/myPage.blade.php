@@ -51,7 +51,14 @@
             </div>
         </div>
         <div class="profileSentence">
-            @if ($user->profile != null)
+            @if(Auth::id() === 6)
+            <p class="guestProf">ゲスト用アカウントです。<br>
+                ご自由にお試しください。
+            </p>
+            <p>
+                {{ $user->profile }}
+            </p>
+            @elseif ($user->profile != null)
                 {{ $user->profile }}
             @else
                 <span>自己紹介未入力</span>
