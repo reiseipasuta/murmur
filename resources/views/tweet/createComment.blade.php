@@ -78,7 +78,6 @@ dd($comments);
                 </div>
         </div>
 
-        <p>コメント一覧</p>
         <div class="comment">
             {{-- コメントフォーム --}}
             <div class="flex width100 justCenter">
@@ -110,6 +109,12 @@ dd($comments);
                     <p>まだコメントはありません。</p>
                 </div>
             @else
+
+
+                <div class="commentList">
+                    コメント一覧
+
+                </div>
                 @foreach ($comments as $comment)
                 <div class="post">
                     <div class="flex">

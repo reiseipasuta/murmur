@@ -139,7 +139,7 @@ form {
     width: 80%;
     margin: 0px auto;
     max-width: 800px;
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     /* display: flex;
     background-color: rgb(116, 102, 89);
     border-radius: 30px;
@@ -267,6 +267,17 @@ ul > li {
     font-size: 18px;
 }
 
+.commentList {
+    margin-right: auto;
+    margin-left: 40px;
+    padding: 5px;
+    /* height: 25px; */
+    width: 150px;
+    background-color: #ab997f;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
 .commentContent {
     border-radius: 25px;
     width: 90%;
@@ -287,6 +298,10 @@ ul > li {
     border-radius: 20px;
     width: 80%;
     background-color: rgb(226, 217, 202);
+}
+
+.commentPost:first-child {
+    border-radius: none;
 }
 
 .profileIcon {
@@ -770,6 +785,17 @@ ul {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* スマホ用設定 */
 
 
@@ -891,6 +917,7 @@ ul {
     }
 
     #modal-content {
+        top:55%;
         padding: 10px;
         width: 90%;
     }
