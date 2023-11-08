@@ -865,6 +865,10 @@ ul {
 
 @media screen and (max-width: 415px){
 
+    .search input {
+        width: 120px;
+    }
+
     #modal-content {
         padding: 10px;
         width: 90%;
