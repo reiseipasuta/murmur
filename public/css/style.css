@@ -102,6 +102,7 @@ form {
     margin: 0px auto;
     display: flex;
     align-items: center;
+    padding: 5px 0;
 }
 
 .logo {
@@ -182,6 +183,7 @@ ul > li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 10px;
 }
 
 .headerMenu > div {

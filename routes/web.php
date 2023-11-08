@@ -23,7 +23,7 @@ Route::get('/iiindex', [TweetController::class, 'iiindex'])->name('iiindex');
 Route::get('/', [TweetController::class, 'index'])->name('index');
 Route::get('tweet/{tweet}/comment/create', [CommentController::class, 'createComment'])->name('createComment');
 Route::get('{user}/userPage', [UserController::class, 'userPage'])->name('userPage');
-// Route::get('register', [UserController::class, 'register'])->name('register');
+Route::get('guest', [UserController::class, 'guestLogin'])->name('guestLogin');
 
 
 Route::get('/dashboard', function () {
@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('tweet/{tweet}/like', [LikeController::class, 'likeChange'])->name('likeChange');
+
+
 
 });
 

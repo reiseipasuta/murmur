@@ -198,4 +198,10 @@ class UserController extends Controller
         return view('goodList', compact('goodTweets'));
     }
 
+    public function guestLogin()
+    {
+        Auth::loginUsingId(6);
+        return redirect()->route('index');
+    }
+
 }

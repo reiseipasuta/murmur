@@ -99,6 +99,17 @@
             </div>
             <div class="headerMenuGuest">
                 <div class="logout">
+                    <a href="{{ route('guestLogin') }}">
+                        <i class="fa-regular fa-face-smile fa-xl"></i>
+                        簡単ログイン
+                    </a>
+                    {{-- <form method="POST" action="{{ route('guestLogin') }}">
+                        @csrf
+                        <i class="fa-regular fa-face-smile fa-xl"></i>
+                        <button class="btnNone">簡単ログイン</button>
+                    </form> --}}
+                </div>
+                <div class="logout">
                     <a href="{{ route('login') }}">
                         <i class="fa-solid fa-right-to-bracket fa-xl"></i>
                         ログイン
