@@ -60,7 +60,7 @@
                             <div class="square"></div>
                             <x-input-label class="registerText" for="password_confirmation" :value="__('プロフィール')" />
                         </div>
-                        <textarea name="body" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('body') }}</textarea>
+                        <textarea name="profile" id="text" onkeyup="ShowLength(value);" required maxlength="200">{{ old('profile') }}</textarea>
                         <p class="length">
                             <span id="inputlength">0</span><span>/200文字</span>
                         </p>
