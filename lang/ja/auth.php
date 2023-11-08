@@ -15,6 +15,6 @@ return [
 
     'failed' => 'このデータは登録されていません。',
     'password' => 'パスワードが違います。',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'ログインに規定数以上失敗しました。:seconds秒後に再度正しい情報をご入力下さい。',
 
 ];
