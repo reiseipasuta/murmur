@@ -38,8 +38,6 @@ class RegisteredUserController extends Controller
             'image' => ['max:102400', 'nullable'],
         ]);
 
-        return $request->profile;
-
         if($request->image != null) {
             $imagePath = $request->image->store('public/images');
             $imageName = basename($imagePath);
