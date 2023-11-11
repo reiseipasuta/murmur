@@ -134,14 +134,14 @@ class UserController extends Controller
     }
 
     public function followingList(User $user) {
-        $follows = $user->followings()->latest()->get();
+        $follows = $user->followings()->latest()->paginate(10);
         $title = 'フォロー';
         return view('followList', compact('user', 'follows', 'title'));
 
     }
 
     public function followerList(User $user) {
-        $follows = $user->followers()->latest()->get();
+        $follows = $user->followers()->latest()->paginate(10);
         $title = 'フォロワー';
         return view('followList', compact('user', 'follows', 'title'));
     }
@@ -190,8 +190,8 @@ class UserController extends Controller
     public function goodList(User $user)
     {
         $user->checkUser($user);
-        $goodTweets = $user->likes()->latest()->get();
-        return view('goodList', compact('goodTweets'));
+        $tweets = $user->likes()->latest()->paginate(10);
+        return view('goodList', compact('tweets'));
     }
 
     public function guestLogin()

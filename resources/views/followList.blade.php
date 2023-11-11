@@ -40,34 +40,8 @@
                 {{ Str::limit($follow->profile, 150, '...') }}
             </div>
             </div>
-
-                {{-- <div class="post">
-                    <div class="profileIcon">
-                    <figure class="iconCircleSmall">
-                        <a href="{{ route('userPage', $follow) }}">
-                            @if ($follow->image === null)
-                            <img class="iconImage" src="{{ asset('storage/images/default.png') }}" alt="">
-                            @else
-                            <img class="iconImage" src="{{ asset('storage/images/'.$follow->image) }}" alt="">
-                            @endif
-                        </a>
-                    </figure>
-                    <p class="name">
-                        <a href="{{ route('userPage', $follow) }}">
-                            {{ $follow->name }}
-                        </a>
-                    </p>
-                    <div class="">
-                        <div>
-                            フォロー解除
-                        </div>
-                        <p>
-                            {{ Str::limit($follow->profile, 40, '...') }}
-                        </p>
-                    </div>
-                    </div>
-                </div> --}}
             @endforeach
+            {{ $follows->links('vendor.pagination.original') }}
         @endif
     </div>
 

@@ -37,9 +37,9 @@ class TweetController extends Controller
                 $slashValue = '%'. addcslashes($value, '%_\\'). '%';
                 $query->where('body','LIKE', $slashValue);
             }
-            $tweets = $query->with('user','comments')->withCount('comments', 'likes')->latest()->paginate(5);
+            $tweets = $query->with('user','comments')->withCount('comments', 'likes')->latest()->paginate(10);
         }else{
-            $tweets = $query->withCount('comments', 'likes')->with('user','comments')->latest()->paginate(5);
+            $tweets = $query->withCount('comments', 'likes')->with('user','comments')->latest()->paginate(10);
         }
 
         return view('index', compact('tweets','keyword'));
