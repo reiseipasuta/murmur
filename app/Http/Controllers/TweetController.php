@@ -37,12 +37,12 @@ class TweetController extends Controller
                 $slashValue = '%'. addcslashes($value, '%_\\'). '%';
                 $query->where('body','LIKE', $slashValue);
             }
-            $tweets = $query->with('user','comments')->withCount('comments', 'likes')->latest()->paginate(10);
+            $tweets = $query->with('user','comments')->withCount('comments', 'likes')->latest()->paginate(5);
         }else{
-            $tweets = $query->withCount('comments', 'likes')->with('user','comments')->latest()->paginate(10);
+            $tweets = $query->withCount('comments', 'likes')->with('user','comments')->latest()->paginate(5);
         }
 
-        return view('index', compact('tweets','keyword'));
+        return view('index', compact('tweets','keyword','query'));
 
     }
 
@@ -79,10 +79,7 @@ class TweetController extends Controller
 
     public function edit(Tweet $tweet)
     {
-        if(Auth::id() != $tweet->user_id)
-        {
-            abort(403);
-        }
+        $tweet->user->checkUser($tweet->user);
 
         return view('tweet.edit')
             ->with(['tweet' => $tweet]);
@@ -90,6 +87,8 @@ class TweetController extends Controller
 
     public function update(TweetRequest $request, Tweet $tweet)
     {
+        $tweet->user->checkUser($tweet->user);
+
         if($request->image != null){
             $imagePath = $request->image->store('public/tweetImages');
             $imageName = basename($imagePath);
@@ -109,13 +108,14 @@ class TweetController extends Controller
 
     public function destroy(Tweet $tweet)
     {
+        $tweet->user->checkUser($tweet->user);
+
         if($tweet->image != null){
             Storage::delete($tweet->image);
         }
         $tweet->delete();
 
-        return redirect()
-            ->route('index');
+        return back();
     }
 
     public function userPage(User $user) {

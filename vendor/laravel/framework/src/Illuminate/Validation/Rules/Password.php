@@ -35,7 +35,7 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
      *
      * @var int
      */
-    protected $min = 4;
+    protected $min = 8;
 
     /**
      * If the password requires at least one uppercase and one lowercase letter.
@@ -143,7 +143,7 @@ class Password implements Rule, DataAwareRule, ValidatorAwareRule
                             ? call_user_func(static::$defaultCallback)
                             : static::$defaultCallback;
 
-        return $password instanceof Rule ? $password : static::min(4);
+        return $password instanceof Rule ? $password : static::min(8);
     }
 
     /**
