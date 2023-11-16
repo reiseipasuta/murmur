@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        create
+        新規作成 - MurMur
     </x-slot>
 
     <div class="contents">

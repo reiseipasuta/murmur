@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        いいねリスト
+        いいねリスト - MurMur
     </x-slot>
 
     <div class="contents">

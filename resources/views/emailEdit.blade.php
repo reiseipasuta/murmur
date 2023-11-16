@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        MyPage
+        MyPage - MurMur
     </x-slot>
 
     <div class="contents">

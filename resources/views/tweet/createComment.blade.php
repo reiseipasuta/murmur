@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        createComment
+        コメント作成 - MurMur
     </x-slot>
 {{-- <?php
 dd($comments);

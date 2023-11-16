@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        Tweeeeeter
+        MurMur
     </x-slot>
 
         <div class="contents">

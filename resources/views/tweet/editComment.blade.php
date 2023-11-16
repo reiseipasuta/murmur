@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        edit
+        編集 - MurMur
     </x-slot>
 
     <div class="contents">
