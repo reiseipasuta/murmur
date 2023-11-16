@@ -72,8 +72,8 @@ class TweetController extends Controller
             ]);
         }
 
-        return redirect()
-            ->back();
+        return redirect()->route('index');
+
     }
 
     public function edit(Tweet $tweet)

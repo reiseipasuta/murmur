@@ -18,8 +18,6 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/iiindex', [TweetController::class, 'iiindex'])->name('iiindex');
-
 Route::get('/', [TweetController::class, 'index'])->name('index');
 Route::get('tweet/{tweet}/comment/create', [CommentController::class, 'createComment'])->name('createComment');
 Route::get('{user}/userPage', [UserController::class, 'userPage'])->name('userPage');
