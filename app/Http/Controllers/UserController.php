@@ -125,12 +125,14 @@ class UserController extends Controller
 
     public function followStore(User $user) {
         $user->followers()->attach(Auth::id());
-        return redirect()->route('userPage', $user);
+        // return redirect()->route('userPage', $user);
+        return redirect()->back();
     }
 
     public function followDestroy(User $user) {
         $user->followers()->detach(Auth::id());
-        return redirect()->route('userPage', $user);
+        // return redirect()->route('userPage', $user);
+        return redirect()->back();
     }
 
     public function followingList(User $user) {
