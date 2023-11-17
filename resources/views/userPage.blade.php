@@ -29,7 +29,7 @@
         </div>
         <div class="profileSentence">
             @if ($user->profile != null)
-                {{ $user->profile }}
+            {!! nl2br($user->profile_link) !!}
             @else
                 <span>自己紹介未入力</span>
             @endif
