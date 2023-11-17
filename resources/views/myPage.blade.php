@@ -120,7 +120,7 @@
 
 
                     <div class="body">
-                        {{ $myTweet->body }}
+                        {!! nl2br($myTweet->body_link) !!}
                     </div>
                     <div class="textCenter">
                         @if ($myTweet->image === null)
